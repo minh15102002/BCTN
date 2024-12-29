@@ -101,7 +101,7 @@
                     </div>
                     </form> -->
 
-                    <ul class="checkbox-list py-2">
+                    <ul class="checkbox-list py-2 ">
                         <!-- <?php foreach($data_brand as $brand):?>
                             <li>
                                 <input type="checkbox" id="brand_<?=$brand->brand_name?>" name="<?=$brand->brand_name?>" value="<?=$brand->brand_name?>">
@@ -109,7 +109,7 @@
                             </li>
                         <?php endforeach;?> -->
                         <?php foreach($data_brand as $brand):?>
-                                    <li class="brand-label"><a href="product.php?brand_id=<?=$brand->brand_id?>"><?=$brand->brand_name?></a></li>
+                                    <li class="brand-label btn "><a href="product.php?brand_id=<?=$brand->brand_id?>"><?=$brand->brand_name?></a></li>
                                 <?php endforeach;?>
                     </ul>
                 </div>

@@ -69,55 +69,106 @@ $comments = Comment::getAllComments($pdo, $product_id, 5, $order);
                         <div class="main-product-detail" style="padding: 20px 0;">
                             <h2>Chi tiết sản phẩm</h2>
                             <div class="product-single row">
-                                <div class="product-detail col-md-5">
+                                <div class="product-detail col-xs-12 col-md-5 col-sm-5">
                                     <div class="page-content" id="content">
                                         <div class="images-container">
                                             <div class="js-qv-mask mask tab-content border">
-                                                <div id="item1" class="tab-pane fade active show">
-                                                    <img src="assets/images/img_pro/<?=$product->product_image?>" alt="img" class="img-fluid">
+                                                <div id="item1" class="tab-pane fade active in show">
+                                                    <img src="assets/images/img_pro/<?=$product->product_image?>" alt="img">
                                                 </div>
+                                                <!-- <div id="item2" class="tab-pane fade">
+                                                    <img src="assets/images/cap-1.png" alt="img">
+                                                </div>
+                                                <div id="item3" class="tab-pane fade">
+                                                    <img src="assets/images/dong-ho-Casio-MTP-VT01L-1BUDF-1.png" alt="img">
+                                                </div>
+                                                <div id="item4" class="tab-pane fade">
+                                                    <img src="assets/images/dong-ho-Casio-MTP-VT01L-1BUDF-1.png" alt="img">
+                                                </div> -->
                                             </div>
+                                            <!-- <ul class="product-tab nav nav-tabs d-flex">
+                                                <li class="active col">
+                                                    <a href="#item1" data-toggle="tab" aria-expanded="true" class="active show">
+                                                        <img src="assets/images/dong-ho-Casio-MTP-VT01L-1BUDF-1.png" alt="img">
+                                                    </a>
+                                                </li>
+                                                <li class="col">
+                                                    <a href="#item2" data-toggle="tab">
+                                                        <img src="assets/images/cap-1.png" alt="img">
+                                                    </a>
+                                                </li>
+                                                <li class="col">
+                                                    <a href="#item3" data-toggle="tab">
+                                                        <img src="assets/images/dong-ho-Casio-MTP-VT01L-1BUDF-1.png" alt="img">
+                                                    </a>
+                                                </li>
+                                                <li class="col">
+                                                    <a href="#item4" data-toggle="tab">
+                                                        <img src="assets/images/dong-ho-Casio-MTP-VT01L-1BUDF-1.png" alt="img">
+                                                    </a>
+                                                </li>
+                                            </ul> -->
+                                            
                                         </div>
                                     </div>
                                 </div>
-                                <div class="product-info col-md-7">
+                                <div class="product-info col-xs-12 col-md-7 col-sm-7">
                                     <div class="detail-description">
+                                        <!-- <p class="fs-5">Casio</p> -->
                                         <h2><?=$product->product_name?></h2>
                                         <p class="description"><?=$product->product_description?></p>
                                         <div class="price-del">
                                             <span class="price fs-4"><?=number_format($product->product_price, 0, ',', '.')?> ₫</span>
                                         </div>
-                                        <div class="cart-area" style="padding: 20px 0;">
-                                            <div class="product-quantity">
-                                                <form method="post">
-                                                    <div class="quantity d-flex align-items-center">
-                                                        <span class="control-label fs-6 float-start me-2">Số lượng : </span>
-                                                        <div class="quantity buttons_added">
-                                                            <input type="button" value="-" class="minus fs-6">
-                                                            <input type="number" name="quantity" value="1" class="input-text qty text fs-6 text-center" readonly style="width: 70px;">
-                                                            <input type="button" value="+" class="plus fs-6">
-                                                        </div>
 
-                                                        <div class="add py-3">
-                                                            <input type="hidden" name="product_id" value="<?=$product->product_id?>">
-                                                            <input type="hidden" name="price" value="<?=$product->product_price?>">
-                                                            <button class="btn btn-primary add-to-cart" type="submit">
-                                                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                                                <span>Thêm vào giỏ hàng</span>
-                                                            </button>
-                                                        </div>
+                                        <div class="has-border cart-area" style="padding: 20px 0;">
+                                            <div class="product-quantity">
+                                                <div class="qty">
+                                                    <div class="input-group d-flex flex-column">
+                                                        <form method="post">
+                                                            <div class="quantity d-flex align-items-center">
+                                                                <span class="control-label fs-6 float-start me-2">Số lượng : </span>
+                                                                <div class="quantity buttons_added">
+                                                                    <input type="button" value="-" class="minus fs-6">
+                                                                    <input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text fs-6 text-center" size="4" pattern="" inputmode="" readonly style="width: 70px;">
+                                                                    <input type="button" value="+" class="plus fs-6">
+                                                                </div>
+
+                                                                <div class="add py-3">
+                                                                    <input type="hidden" name="product_id" value="<?=$product->product_id?>">
+                                                                    <input type="hidden" name="price" value="<?=$product->product_price?>">
+    
+                                                                    <button class="btn btn-primary add-to-cart add-item" data-button-action="add-to-cart" type="submit">
+                                                                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                                                        <span>Thêm vào giỏ hàng</span>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </form>
                                                     </div>
-                                                </form>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="content">
-                                            <p>Categories : <a href="#"><?=$product->category_name?></a></p>
-                                            <p>Brand : <a href="#"><?=$product->brand_name?></a></p>
+                                            <!-- <p>SKU :
+                                                <span class="content2">
+                                                    <a href="#">e-02154</a>
+                                                </span>
+                                            </p> -->
+                                            <p>Danh mục :
+                                                <span class="content2">
+                                                    <a href="#"><?=$product->category_name?></a>
+                                                </span>
+                                            </p>
+                                            <p>Thương hiệu :
+                                                <span class="content2">
+                                                    <a href="#"><?=$product->brand_name?></a>
+                                                </span>
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
                             <!-- Tab content -->
                             <div class="review">
                                 <ul class="nav nav-tabs">

@@ -121,6 +121,9 @@
                                         <?php endif;?>
                                     </div>
                                 </div>
+                                <div>
+                                <a href="login.php" class="px-5 ">Bạn đã tài khoản? Đăng nhập</a>
+                            </div>
                             </form>
                         </div>
                     </div>

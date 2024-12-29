@@ -72,7 +72,11 @@
                                         <a href="forgot-password.php" class="px-5 fw-bold">Quên mật khẩu?</a>
                                         <a href="change-password.php" class="px-5 fw-bold">Đổi mật khẩu?</a>
                                     </div>
+                                    
                                 </div>
+
+                                
+
                                 <div class="clearfix">
                                     <div>
                                         <h5 class="text-danger fw-bold"><?=$login_failed?></h5>
@@ -81,7 +85,11 @@
                                         </button>
                                     </div>
                                 </div>
+                                <div>
+                                    <a href="register.php" class="px-5 ">Bạn chưa có tài khoản? Đăng ký</a>
+                                </div>
                             </form>
+                            
                         </div>
                     </div>
                 </div>
