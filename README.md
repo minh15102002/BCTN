@@ -14,3 +14,4 @@
 - Theo dõi và cập nhật trạng thái đơn hàng
 - Hỗ trợ đổi mật khẩu, quên mật khẩu (gửi mã otp xác nhận về mail)
 - Thanh toán online qua Stripe
+- Đăng nhập Google
