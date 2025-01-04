@@ -5,7 +5,39 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+.active a {
+    text-decoration: underline;
+}
+a.filled-button2 {
+    background-color: #fff;
+    color: #000000;
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 12px 30px;
+    border-radius: 30px;
+    display: inline-block;
+    transition: all 0.3s;
+}
 
+a.filled-button2:hover {
+    background-color: #717171;
+    /* color: #fff; */
+    color: red;
+}
+.hover-text-red {
+    color: black; /* Initial color */
+    transition: color 0.3s ease; /* Smooth transition */
+}
+
+.hover-text-red:hover {
+    color: red; /* Color on hover */
+}
+
+.hover-text-red.selected {
+    color: red; /* Color when selected */
+    font-weight: bold; /* Optional: make the selected text bold */
+}
 ::-webkit-scrollbar {
     width: 5px;
     background-color: #f4f4f4;
@@ -988,6 +1020,10 @@ ul.slick-dots {
 
 .brand-label:hover {
     color: #ff5722; /* Màu mới khi di chuột vào */
+}
+.brand-label a.selected {
+    background-color: red; /* Change this to your desired highlight color */
+    color: white; /* Text color when selected */
 }
 .row-large {
     max-width: 1200px;
@@ -2710,7 +2746,14 @@ h5 a {
 h5 a:hover {
     color: inherit;
 }
+.hover-text-red a {
+    color: black; /* Initial color */
+    transition: color 0.3s ease; /* Smooth transition */
+}
 
+.hover-text-red a:hover {
+    color: red; /* Color on hover */
+}
 
 /* contact  */
 

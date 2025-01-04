@@ -39,7 +39,7 @@ foreach ($dailyRevenue as $row) {
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Doanh thu</div>
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1"> Tong doanh thu</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?= number_format($total_revenue, 0, ',', '.') ?> VNĐ</div>
                         </div>
                         <div class="col-auto">

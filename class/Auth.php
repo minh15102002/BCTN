@@ -351,9 +351,15 @@ class Auth {
         $stmt->bindParam(":phone", $phone, PDO::PARAM_STR);
         $stmt->bindParam(":role", $role, PDO::PARAM_STR);
 
-        if($stmt->execute()){
-            header("location: listUser.php");
+        // if($stmt->execute()){
+        //     $_SESSION['success_update'] = "Cập nhật thành công."; 
+        //     header("location: listUser.php");
+        // }
+        if ($stmt->execute()) {
+            $_SESSION['success_update'] = "Cập nhật thành công."; 
+            return true; // Trả về true nếu cập nhật thành công
         }
+        return false; // Trả về false nếu không thành công
     }
 
     public static function totalUser($pdo) {

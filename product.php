@@ -89,40 +89,41 @@
                     </div>
                 </div>
 
-                <div class="section-filter">
+                <!-- <div class="section-filter">
                     <p class="text-uppercase fw-bold fs-6 pb-2">Thương hiệu</p>
-                    
-                    <!-- <form method="get">
-                    <div class="input-group flex-nowrap">
-                        <input type="text" name="search" class="form-control" placeholder="Tìm thương hiệu" aria-label="Username" aria-describedby="addon-wrapping">
-                        <span class="input-group-text" id="addon-wrapping" style="background-color: black;">
-                            <button type="submit"  style="background-color: transparent; border: none;"><img src="assets/images/icons/searchengin.png" alt=""></button>
-                        </span>
-                    </div>
-                    </form> -->
-
                     <ul class="checkbox-list py-2 ">
-                        <!-- <?php foreach($data_brand as $brand):?>
-                            <li>
-                                <input type="checkbox" id="brand_<?=$brand->brand_name?>" name="<?=$brand->brand_name?>" value="<?=$brand->brand_name?>">
-                                <label for="brand_<?=$brand->brand_name?>"><?=$brand->brand_name?></label>
-                            </li>
-                        <?php endforeach;?> -->
                         <?php foreach($data_brand as $brand):?>
-                                    <li class="brand-label btn "><a href="product.php?brand_id=<?=$brand->brand_id?>"><?=$brand->brand_name?></a></li>
+                                    <li class="brand-label btn "><a class="filled-button" href="product.php?brand_id=<?=$brand->brand_id?>"><?=$brand->brand_name?></a></li>
                                 <?php endforeach;?>
                     </ul>
+                </div> -->
+                <div class="section-filter">
+                    <p class="text-uppercase fw-bold fs-6 pb-2">Thương hiệu</p>
+                    <ul class="checkbox-list py-2">
+                        <?php foreach($data_brand as $brand): ?>
+                            <li class="brand-label btn">
+                                <a class="filled-button2" href="product.php?brand_id=<?=$brand->brand_id?>" onclick="highlight(this); return false;"><?=$brand->brand_name?></a>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                    <script>
+    function highlight(element) {
+        // Remove 'selected' class from all links
+        const links = document.querySelectorAll('.brand-label a');
+        links.forEach(link => link.classList.remove('selected'));
+        
+        // Add 'selected' class to the clicked link
+        element.classList.add('selected');
+        
+        // Redirect to the new page after a short delay
+        setTimeout(() => {
+            window.location.href = element.href;
+        }, 100); // Adjust the delay as needed
+    }
+</script>
                 </div>
 
                 <div class="section-filter">
-                <!-- <form>
-                    <div class="form-group"> -->
-                        <!-- <label for="priceRange">Lọc theo giá</label> -->
-                        <!-- <p class="text-uppercase fw-bold fs-6">Lọc theo giá</p> -->
-                        <!-- <input type="range" class="form-range" id="priceRange" min="0" max="100" value="50"> -->
-                        
-                    <!-- </div>
-                </form> -->
                     <p class="text-uppercase fw-bold fs-6">Lọc theo giá (VNĐ)</p>
                     <div class="wrapper-filter-price-input">
                         <input type="text" minlenght="1" maxlength="10" class="text-price-from" value="0" />
@@ -158,8 +159,6 @@
                             radioButton.addEventListener('change', (event) => {
                                 const value = event.target.dataset.price; // Lấy giá trị từ thuộc tính data-price của radio button
                                 const [from, to] = value.split('_'); // Phân tách giá trị thành 2 phần riêng biệt
-
-                                // Gán giá trị vào các input text
                                 textPriceFrom.value = from;
                                 textPriceTo.value = to;
                             });

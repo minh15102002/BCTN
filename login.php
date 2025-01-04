@@ -1,7 +1,7 @@
 <?php
     require_once "inc/header.php";
     require_once "class/Database.php";
-    
+    require_once 'config-google.php';
     $conn =  new Database();
     $pdo = $conn->getConnect();
     
@@ -83,10 +83,17 @@
                                         <button class="btn btn-account" data-link-action="sign-in" type="submit">
                                             Đăng nhập
                                         </button>
+                                        <div style='display: flex;text-align: center;justify-content: center; margin-top: 5px;margin-bottom: 20px; '>
+                                            <a href="<?php echo htmlspecialchars($client->createAuthUrl()); ?>" style='width: 300px;height: 35px;border: 2px solid red;border-radius: 5px;text-align: center;display: flex;justify-content: center;align-items: center;'>
+                                                <img src='assets/images/google.png' alt='Google Login' style='width: 25px; height: 25px;margin-right:8px'>
+                                                Google Login
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                                 <div>
                                     <a href="register.php" class="px-5 ">Bạn chưa có tài khoản? Đăng ký</a>
+                                    
                                 </div>
                             </form>
                             

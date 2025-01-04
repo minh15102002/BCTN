@@ -51,9 +51,30 @@
 
         $check = !$nameErrors && !$emailErrors && !$phoneErrors && !$roleErrors;
         
-        if($check) {
-            Auth::editUser($pdo, $id, $email, $name, $phone, $role);
+        // if($check) {
+        //     Auth::editUser($pdo, $id, $email, $name, $phone, $role);
+            
+        // }
+        // if ($check) {
+        //     if (Auth::editUser($pdo, $id, $email, $name, $phone, $user->role)) {
+        //         header("Location: listUser.php");
+        //         unset($_SESSION['success_update']);
+        //     } else {
+        //         echo "<script>alert('Cập nhật không thành công.');</script>";
+        //     }
+        // }
+        if ($check) {
+            // Cập nhật thông tin người dùng
+            if (Auth::editUser($pdo, $id, $email, $name, $phone, $user->role)) {
+                // Cập nhật thành công
+                echo "<script>alert('" . $_SESSION['success_update'] . "');</script>";
+                unset($_SESSION['success_update']); // Xóa thông báo sau khi hiển thị
+            } else {
+                // Cập nhật không thành công
+                echo "<script>alert('Cập nhật không thành công.');</script>";
+            }
         }
+        
     }
 ?>
     <div class="container-fluid">

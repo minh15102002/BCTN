@@ -284,12 +284,22 @@ class Product {
         }
     }
 
-    public static function totalProduct($pdo) {
-        $sql = "SELECT COUNT(*) FROM product";
-        $stmt = $pdo->prepare($sql);
+    // public static function totalProduct($pdo) {
+    //     $sql = "SELECT COUNT(*) FROM product";
+    //     $stmt = $pdo->prepare($sql);
 
+    //     if($stmt->execute()){
+    //         return $stmt->fetchColumn();
+    //     }
+    // }
+    public static function totalProduct($pdo) {
+        $sql = "SELECT MAX(product_id) FROM product"; // Get the maximum product_id
+        $stmt = $pdo->prepare($sql);
+    
         if($stmt->execute()){
-            return $stmt->fetchColumn();
+            return $stmt->fetchColumn(); // Return the highest product_id
         }
+    
+        return null; // Return null if the execution fails
     }
 }
