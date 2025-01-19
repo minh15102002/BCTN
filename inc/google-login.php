@@ -87,6 +87,6 @@ if (isset($_GET['code'])) {
 }
 
 // Nếu không có mã, chuyển hướng về trang chính
-header("Location: index.php");
+header("Location: ../index.php");
 exit();
 ?>
