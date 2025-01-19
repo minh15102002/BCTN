@@ -18,7 +18,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 // Kiểm tra xem người dùng đã đăng nhập chưa
 if (isset($_SESSION['user_id'])) {
-    header("Location: index.php"); // Nếu đã đăng nhập, chuyển hướng đến trang chính
+    header("Location: ../index.php"); // Nếu đã đăng nhập, chuyển hướng đến trang chính
     exit();
 }
 
